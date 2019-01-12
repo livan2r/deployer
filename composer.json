@@ -12,8 +12,8 @@
     ],
     "require": {
         "php": ">=5.3.7",
-        "illuminate/foundation": "5.*",
-        "illuminate/support": "5.*",
+        "illuminate/foundation": ">=5.*",
+        "illuminate/support": ">=5.*",
         "laravel/envoy": "^1.5"
     },
     "require-dev": {
