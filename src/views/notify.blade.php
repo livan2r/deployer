@@ -5,6 +5,10 @@
     <h2><strong>Repository:</strong> {{ $repository }}</h2>
     @foreach($tasks as $task)
         <h3><strong>Task:</strong>{{ $task }}</h3>
-        <p>{{ $results[$task] }}</p>
+        @if (!empty($results[$task]))
+            <p>{{ $results[$task] }}</p>
+        @else
+            <p>Not ran</p>
+        @endif
     @endforeach
 @endforeach

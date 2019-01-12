@@ -102,7 +102,11 @@ class Deployer
             $string[] = "Repository: $repository";
             foreach ($tasks as $task) {
                 $string[] = "Task: $task";
-                $string[] = $results[$task];
+                if (!empty($results[$task])) {
+                    $string[] = $results[$task];
+                } else {
+                    $string[] = 'Not ran';
+                }
             }
         }
         LOG::info(join("\n", $string));
