@@ -79,6 +79,7 @@ class Deployer
         // run the task
         $command = base_path().'/vendor/bin/envoy';
         $process = new Process([$command, 'run', $task], base_path());
+        $process->setTimeout(null);
         try {
             $process->mustRun();
             return $process->getOutput();
