@@ -6,7 +6,7 @@
     @foreach($tasks as $task)
         <h3><strong>Task:</strong>{{ $task }}</h3>
         @if (!empty($results[$task]))
-            <p>{{ $results[$task] }}</p>
+            <p>{{ nl2br($results[$task]) }}</p>
         @else
             <p>Not ran</p>
         @endif
