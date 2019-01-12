@@ -8,6 +8,6 @@ return [
 
     // create an entry per each repository
     'projects' => [
-        'hello-world' => ['deploy'],
+        'buk' => ['deploy'],
     ],
 ];
