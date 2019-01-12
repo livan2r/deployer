@@ -1,0 +1,40 @@
+{
+    "name": "livan2r/deployer",
+    "description": "A Laravel 5.x automatic application deployment package via git webhooks",
+    "keywords": ["deploy", "deployment", "laravel", "envoy"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Livan Rodriguez",
+            "email": "livan2r@gmail.com",
+            "role": "Creator"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.7",
+        "illuminate/foundation": "5.*",
+        "illuminate/support": "5.*",
+        "laravel/envoy": "^1.5"
+    },
+    "require-dev": {
+        "mockery/mockery": "0.9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Livan2r\\Deployer\\": "src/"
+        }
+    },
+    "extra": {
+        "component": "package",
+        "frameworks": ["Laravel 5"],
+        "laravel": {
+            "providers": [
+                "Livan2r\\Deployer\\DeployerServiceProvider"
+            ],
+            "aliases": {
+                "Deployer": "Livan2r\\Deployer\\Facade\\Deployer"
+            }
+        }
+    },
+    "minimum-stability": "dev"
+}
