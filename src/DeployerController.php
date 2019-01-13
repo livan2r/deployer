@@ -16,7 +16,7 @@ class DeployerController extends Controller
      */
     public function deploy(Request $request)
     {
-        Deployer::deploy($request->get('payload', null));
+        Deployer::deploy($request->get('payload', $request->getContent()));
 
         return response('OK', 200)
             ->header('Content-Type', 'text/plain');
