@@ -3,6 +3,7 @@
 
 @foreach($projects as $repository => $tasks)
     <h2><strong>Repository:</strong> {{ $repository }}</h2>
+    <h2><strong>Message:</strong> {{ $payload->message }}</h2>
     @foreach($tasks as $task)
         <h3><strong>Task:</strong>{{ $task }}</h3>
         @if (!empty($results[$task]))

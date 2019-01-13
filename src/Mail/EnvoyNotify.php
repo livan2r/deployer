@@ -5,7 +5,6 @@ namespace Livan2r\Deployer\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
 
 class EnvoyNotify extends Mailable
 {
@@ -13,17 +12,20 @@ class EnvoyNotify extends Mailable
 
     public $results;
     public $projects;
+    public $payload;
 
     /**
      * Create a new message instance.
      *
      * @param $projects
      * @param $results
+     * @param $payload
      */
-    public function __construct($projects, $results)
+    public function __construct($projects, $results, $payload)
     {
         $this->projects = $projects;
         $this->results = $results;
+        $this->payload = $payload;
     }
 
     /**

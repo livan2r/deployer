@@ -28,9 +28,10 @@ class Github implements DriverInterface
             return null;
 
         return (object) [
-            'actions'    => $payload->hook->events,
+            'ref'        => $payload->ref,
             'repository' => $payload->repository->name,
-            'sender'     => $payload->sender->login
+            'sender'     => $payload->sender->login,
+            'message'    => $payload->head_commit->message
         ];
     }
 }

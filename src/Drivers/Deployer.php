@@ -32,7 +32,7 @@ class Deployer
         // get the payload data
         $driver = '\\Livan2r\\Deployer\\Drivers\\' . config('deployer.driver', 'Github');
         $payload = $driver::getPayload($payload);
-        if (empty($payload))
+        if (empty($payload) || $payload->ref !== config('deployer.ref', null))
             return null;
 
         // run the scripts
@@ -61,9 +61,9 @@ class Deployer
             $notifyEmail = config('deployer.notify', null);
             if ($notifyEmail) {
                 Mail::to($notifyEmail)
-                    ->send(new EnvoyNotify($projects, $results));
+                    ->send(new EnvoyNotify($projects, $results, $payload));
             }
-            $this->logResults($projects, $results);
+            $this->logResults($projects, $results, $payload);
         }
     }
 
@@ -93,14 +93,16 @@ class Deployer
      *
      * @param $projects
      * @param $results
+     * @param $payload
      */
-    public function logResults($projects, $results)
+    public function logResults($projects, $results, $payload)
     {
         $string = [];
         $string[] = "Deploy notification";
         $string[] = "Project: " . env('APP_NAME', 'App name');
         foreach ($projects as $repository => $tasks) {
             $string[] = "Repository: $repository";
+            $string[] = "Message: '{$payload->message}'";
             foreach ($tasks as $task) {
                 $string[] = "Task: $task";
                 if (!empty($results[$task])) {

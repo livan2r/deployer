@@ -30,31 +30,67 @@ class DeployerFunctionTest extends TestCase
     {
         return '
             {
-              "zen": "Responsive is better than fast.",
-              "hook_id": 77794142,
-              "hook": {
-                "type": "Repository",
-                "id": 77794142,
-                "name": "web",
-                "active": true,
-                "events": [
-                  "push"
-                ],
-                "config": {
-                  "content_type": "form",
-                  "insecure_ssl": "0",
-                  "url": "https://testing.buk.com.mx"
-                },
-                "updated_at": "2019-01-12T13:31:14Z",
-                "created_at": "2019-01-12T13:31:14Z",
-                "url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/hooks/77794142",
-                "test_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/hooks/77794142/test",
-                "ping_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/hooks/77794142/pings",
-                "last_response": {
-                  "code": null,
-                  "status": "unused",
-                  "message": null
+              "ref": "refs/heads/dev",
+              "before": "77afc30441b0ac09021b52f90bbb25e010003d14",
+              "after": "1823508d151c115bff860d12a820b3a38714a33b",
+              "created": false,
+              "deleted": false,
+              "forced": false,
+              "base_ref": null,
+              "compare": "https://github.com/AlfaomegaGrupoEditor/buk/compare/77afc30441b0...1823508d151c",
+              "commits": [
+                {
+                  "id": "1823508d151c115bff860d12a820b3a38714a33b",
+                  "tree_id": "e780e39a612c2e51719cf9ecc3dd13907f969b95",
+                  "distinct": true,
+                  "message": "Envoy configured\n\nSigned-off-by: Livan A. Rodriguez <livan2r@alfaomega.com.mx>",
+                  "timestamp": "2019-01-12T12:20:10-05:00",
+                  "url": "https://github.com/AlfaomegaGrupoEditor/buk/commit/1823508d151c115bff860d12a820b3a38714a33b",
+                  "author": {
+                    "name": "Livan A. Rodriguez",
+                    "email": "livan2r@alfaomega.com.mx"
+                  },
+                  "committer": {
+                    "name": "Livan A. Rodriguez",
+                    "email": "livan2r@alfaomega.com.mx"
+                  },
+                  "added": [
+            
+                  ],
+                  "removed": [
+            
+                  ],
+                  "modified": [
+                    "Envoy.blade.example.php",
+                    "permissions.sh"
+                  ]
                 }
+              ],
+              "head_commit": {
+                "id": "1823508d151c115bff860d12a820b3a38714a33b",
+                "tree_id": "e780e39a612c2e51719cf9ecc3dd13907f969b95",
+                "distinct": true,
+                "message": "Envoy configured\n\nSigned-off-by: Livan A. Rodriguez <livan2r@alfaomega.com.mx>",
+                "timestamp": "2019-01-12T12:20:10-05:00",
+                "url": "https://github.com/AlfaomegaGrupoEditor/buk/commit/1823508d151c115bff860d12a820b3a38714a33b",
+                "author": {
+                  "name": "Livan A. Rodriguez",
+                  "email": "livan2r@alfaomega.com.mx"
+                },
+                "committer": {
+                  "name": "Livan A. Rodriguez",
+                  "email": "livan2r@alfaomega.com.mx"
+                },
+                "added": [
+            
+                ],
+                "removed": [
+            
+                ],
+                "modified": [
+                  "Envoy.blade.example.php",
+                  "permissions.sh"
+                ]
               },
               "repository": {
                 "id": 158741798,
@@ -63,6 +99,8 @@ class DeployerFunctionTest extends TestCase
                 "full_name": "AlfaomegaGrupoEditor/buk",
                 "private": true,
                 "owner": {
+                  "name": "AlfaomegaGrupoEditor",
+                  "email": "contacto@alfaomega.com.mx",
                   "login": "AlfaomegaGrupoEditor",
                   "id": 45267750,
                   "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ1MjY3NzUw",
@@ -85,7 +123,7 @@ class DeployerFunctionTest extends TestCase
                 "html_url": "https://github.com/AlfaomegaGrupoEditor/buk",
                 "description": "Pltaforma para la renta de libros",
                 "fork": false,
-                "url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk",
+                "url": "https://github.com/AlfaomegaGrupoEditor/buk",
                 "forks_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/forks",
                 "keys_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/keys{/key_id}",
                 "collaborators_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/collaborators{/collaborator}",
@@ -122,15 +160,15 @@ class DeployerFunctionTest extends TestCase
                 "labels_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/labels{/name}",
                 "releases_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/releases{/id}",
                 "deployments_url": "https://api.github.com/repos/AlfaomegaGrupoEditor/buk/deployments",
-                "created_at": "2018-11-22T19:16:53Z",
+                "created_at": 1542914213,
                 "updated_at": "2019-01-08T01:05:07Z",
-                "pushed_at": "2019-01-12T13:19:42Z",
+                "pushed_at": 1547313621,
                 "git_url": "git://github.com/AlfaomegaGrupoEditor/buk.git",
                 "ssh_url": "git@github.com:AlfaomegaGrupoEditor/buk.git",
                 "clone_url": "https://github.com/AlfaomegaGrupoEditor/buk.git",
                 "svn_url": "https://github.com/AlfaomegaGrupoEditor/buk",
                 "homepage": "https://testing.buk.com.mx",
-                "size": 39144,
+                "size": 39198,
                 "stargazers_count": 1,
                 "watchers_count": 1,
                 "language": "PHP",
@@ -147,7 +185,28 @@ class DeployerFunctionTest extends TestCase
                 "forks": 0,
                 "open_issues": 3,
                 "watchers": 1,
-                "default_branch": "master"
+                "default_branch": "master",
+                "stargazers": 1,
+                "master_branch": "master",
+                "organization": "AlfaomegaGrupoEditor"
+              },
+              "pusher": {
+                "name": "livan2r",
+                "email": "livan2r@gmail.com"
+              },
+              "organization": {
+                "login": "AlfaomegaGrupoEditor",
+                "id": 45267750,
+                "node_id": "MDEyOk9yZ2FuaXphdGlvbjQ1MjY3NzUw",
+                "url": "https://api.github.com/orgs/AlfaomegaGrupoEditor",
+                "repos_url": "https://api.github.com/orgs/AlfaomegaGrupoEditor/repos",
+                "events_url": "https://api.github.com/orgs/AlfaomegaGrupoEditor/events",
+                "hooks_url": "https://api.github.com/orgs/AlfaomegaGrupoEditor/hooks",
+                "issues_url": "https://api.github.com/orgs/AlfaomegaGrupoEditor/issues",
+                "members_url": "https://api.github.com/orgs/AlfaomegaGrupoEditor/members{/member}",
+                "public_members_url": "https://api.github.com/orgs/AlfaomegaGrupoEditor/public_members{/member}",
+                "avatar_url": "https://avatars2.githubusercontent.com/u/45267750?v=4",
+                "description": ""
               },
               "sender": {
                 "login": "livan2r",
@@ -169,7 +228,7 @@ class DeployerFunctionTest extends TestCase
                 "type": "User",
                 "site_admin": false
               }
-            }    
+            }   
         ';
     }
 }
