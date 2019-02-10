@@ -21,25 +21,29 @@ class Deployer
      *
      * @param $payload
      *
-     * @return string
+     * @return array
      */
     public function deploy($payload=null)
     {
         // check if the service is enabled
         if (!config('deployer.enabled', true))
-            return null;
+            return ['status' => 'fail', 'message'=> 'Deployer disabled'];
 
         // get the payload data
         $driver = '\\Livan2r\\Deployer\\Drivers\\' . config('deployer.driver', 'Github');
         $payload = $driver::getPayload($payload);
         if (empty($payload) || $payload->ref !== config('deployer.ref', null))
-            return null;
+            return [
+                'status' => 'fail',
+                'message'=> empty($payload)
+                    ? 'Payload empty'
+                    : $payload->ref . ' =! ' . config('deployer.ref', null)];
 
         // run the scripts
-        $this->run($payload);
+        $result = $this->run($payload);
 
         // return the repository name
-        return $payload->repository;
+        return $result;
     }
 
     /**
@@ -51,9 +55,10 @@ class Deployer
      */
     public function run($payload)
     {
+        // get the configuration
         $projects = config('deployer.projects', []);
         if (empty($projects[$payload->repository]))
-            return ['status' => 'fail', 'message'=> 'Payload empty'];
+            return ['status' => 'fail', 'message'=> "There isn't any script for the repository " . $payload->repository];
 
         // run each task
         $results = [];
@@ -69,11 +74,12 @@ class Deployer
         }
         $this->logResults($projects, $results, $payload);
 
-
+        // return the result
         return [
-            'status'  => 'success',
-            'message' => 'Everything was fine',
-            'results' => $results,
+            'status'     => 'success',
+            'message'    => 'Everything was ok, good job!!',
+            'results'    => $results,
+            'repository' => $payload->repository
         ];
     }
 
