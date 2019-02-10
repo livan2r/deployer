@@ -46,25 +46,35 @@ class Deployer
      * Run the scripts for the updated repository
      *
      * @param $payload
+     *
+     * @return array
      */
     public function run($payload)
     {
         $projects = config('deployer.projects', []);
-        if (!empty($projects[$payload->repository])) {
-            // run each task
-            $results = [];
-            foreach ($projects[$payload->repository] as $item) {
-                $results[$item] = $this->runEnvoyScripts($item);
-            }
+        if (empty($projects[$payload->repository]))
+            return ['status' => 'fail', 'message'=> 'Payload empty'];
 
-            //send the notification
-            $notifyEmail = config('deployer.notify', null);
-            if ($notifyEmail) {
-                Mail::to($notifyEmail)
-                    ->send(new EnvoyNotify($projects, $results, $payload));
-            }
-            $this->logResults($projects, $results, $payload);
+        // run each task
+        $results = [];
+        foreach ($projects[$payload->repository] as $item) {
+            $results[$item] = $this->runEnvoyScripts($item);
         }
+
+        //send the notifications
+        $notifyEmail = config('deployer.notify', null);
+        if ($notifyEmail) {
+            Mail::to($notifyEmail)
+                ->send(new EnvoyNotify($projects, $results, $payload));
+        }
+        $this->logResults($projects, $results, $payload);
+
+
+        return [
+            'status'  => 'success',
+            'message' => 'Everything was fine',
+            'results' => $results,
+        ];
     }
 
     /**
